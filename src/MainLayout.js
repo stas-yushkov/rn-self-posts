@@ -5,6 +5,8 @@ import { View, StyleSheet } from 'react-native';
 import { MainScreen } from './screens/MainScreen';
 import { CreateScreen } from './screens/CreateScreen';
 import { AboutScreen } from './screens/AboutScreen';
+import { BookmarkedScreen } from './screens/BookmarkedScreen';
+import { PostScreen } from './screens/PostScreen';
 
 import { colors } from './constants/colors';
 
@@ -17,6 +19,8 @@ export const MainLayout = ({ onLayoutRootView }) => {
       <MainScreen />
       {/* <CreateScreen /> */}
       {/* <AboutScreen /> */}
+      {/* <BookmarkedScreen /> */}
+      {/* <PostScreen /> */}
       <StatusBar style="auto" />
     </View>
   )

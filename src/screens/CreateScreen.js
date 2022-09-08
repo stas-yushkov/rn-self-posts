@@ -5,7 +5,7 @@ import { AppText } from "../ui/AppText"
 
 import { colors } from "../constants/colors"
 
-export const CreateScreen = ({ children }) => {
+export const CreateScreen = ({ }) => {
   return (
     <View style={styles.screen}>
       <AppText
@@ -16,7 +16,6 @@ export const CreateScreen = ({ children }) => {
         }}>
         Create Screen
       </AppText>
-      {children}
     </View>
   )
 }
