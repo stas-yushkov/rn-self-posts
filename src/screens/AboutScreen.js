@@ -5,7 +5,7 @@ import { AppText } from "../ui/AppText"
 
 import { colors } from "../constants/colors"
 
-export const AboutScreen = ({ }) => {
+export const AboutScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <AppText
@@ -13,7 +13,8 @@ export const AboutScreen = ({ }) => {
         large
         style={{
           color: colors.textColor,
-        }}>
+        }}
+      >
         About Screen
       </AppText>
     </View>

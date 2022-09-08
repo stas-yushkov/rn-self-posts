@@ -1,11 +1,11 @@
 import React from "react"
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, Button } from "react-native"
 
 import { AppText } from "../ui/AppText"
 
 import { colors } from "../constants/colors"
 
-export const PostScreen = ({ }) => {
+export const PostScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <AppText
@@ -13,9 +13,14 @@ export const PostScreen = ({ }) => {
         large
         style={{
           color: colors.textColor,
-        }}>
+        }}
+      >
         Post Screen
       </AppText>
+      <Button
+        title="Go to Main"
+        onPress={() => navigation.navigate('Main')}
+      />
     </View>
   )
 }

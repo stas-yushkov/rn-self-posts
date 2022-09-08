@@ -2,11 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet } from 'react-native';
 
-import { MainScreen } from './screens/MainScreen';
-import { CreateScreen } from './screens/CreateScreen';
-import { AboutScreen } from './screens/AboutScreen';
-import { BookmarkedScreen } from './screens/BookmarkedScreen';
-import { PostScreen } from './screens/PostScreen';
+import { AppNavigation } from './navigation/AppNavigation';
 
 import { colors } from './constants/colors';
 
@@ -16,11 +12,7 @@ export const MainLayout = ({ onLayoutRootView }) => {
       style={styles.container}
       onLayout={onLayoutRootView}
     >
-      <MainScreen />
-      {/* <CreateScreen /> */}
-      {/* <AboutScreen /> */}
-      {/* <BookmarkedScreen /> */}
-      {/* <PostScreen /> */}
+      <AppNavigation />
       <StatusBar style="auto" />
     </View>
   )

@@ -5,7 +5,7 @@ import { AppText } from "../ui/AppText"
 
 import { colors } from "../constants/colors"
 
-export const BookmarkedScreen = ({ }) => {
+export const BookmarkedScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <AppText
@@ -13,7 +13,8 @@ export const BookmarkedScreen = ({ }) => {
         large
         style={{
           color: colors.textColor,
-        }}>
+        }}
+      >
         Bookmarked Screen
       </AppText>
     </View>
