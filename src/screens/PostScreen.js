@@ -25,6 +25,10 @@ export const PostScreen = ({ navigation }) => {
   )
 }
 
+PostScreen.navigationOptions = {
+  headerTitle: 'Post #42'
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

@@ -25,6 +25,10 @@ export const MainScreen = ({ navigation }) => {
   )
 }
 
+MainScreen.navigationOptions = {
+  headerTitle: 'My blog'
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

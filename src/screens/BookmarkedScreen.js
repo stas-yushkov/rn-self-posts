@@ -21,6 +21,10 @@ export const BookmarkedScreen = ({ navigation }) => {
   )
 }
 
+BookmarkedScreen.navigationOptions = {
+  headerTitle: 'Bookmarked posts'
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

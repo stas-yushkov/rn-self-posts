@@ -21,6 +21,10 @@ export const CreateScreen = ({ navigation }) => {
   )
 }
 
+CreateScreen.navigationOptions = {
+  headerTitle: 'Create post'
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

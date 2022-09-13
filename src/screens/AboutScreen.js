@@ -21,6 +21,10 @@ export const AboutScreen = ({ navigation }) => {
   )
 }
 
+AboutScreen.navigationOptions = {
+  headerTitle: 'About'
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
