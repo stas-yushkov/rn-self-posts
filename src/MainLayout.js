@@ -13,7 +13,10 @@ export const MainLayout = ({ onLayoutRootView }) => {
       onLayout={onLayoutRootView}
     >
       <AppNavigation />
-      <StatusBar style="auto" />
+      <StatusBar
+        style={colors.statusBarStyle}
+      // animated='fade'
+      />
     </View>
   )
 };

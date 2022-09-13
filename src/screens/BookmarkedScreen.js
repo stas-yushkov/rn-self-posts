@@ -1,9 +1,9 @@
-import React from "react"
-import { View, StyleSheet } from "react-native"
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import { AppText } from "../ui/AppText"
+import { AppText } from '../ui/AppText';
 
-import { colors } from "../constants/colors"
+import { colors } from '../constants/colors';
 
 export const BookmarkedScreen = ({ navigation }) => {
   return (
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.appBg
   }
 })
