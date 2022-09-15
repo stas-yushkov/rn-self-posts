@@ -1,10 +1,13 @@
 import React, { useContext, useEffect } from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button, FlatList } from 'react-native';
 
 import { AppText } from '../ui/AppText';
+import { Post } from '../components/Post';
 
 import { COLORS } from '../constants/colors';
 import { ThemeContext } from '../context/ThemeContext';
+
+import { DATA } from '../data'
 
 export const MainScreen = ({ navigation }) => {
   const colors = COLORS[useContext(ThemeContext).theme];
@@ -20,20 +23,19 @@ export const MainScreen = ({ navigation }) => {
   })
 
   return (
-    <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
-      <AppText
-        bold
-        large
-        style={{
-          color: colors.textColor,
-        }}
-      >
+    <View style={{ ...styles.wrapper, backgroundColor: colors.appBg }}>
+      <FlatList
+        data={DATA}
+        keyExtractor={post => post.id.toString()}
+        renderItem={({ item }) => <Post post={item} />}
+      />
+      {/* <AppText bold large>
         Main Screen
       </AppText>
       <Button
         title="Go to Post"
         onPress={() => navigation.navigate('Post')}
-      />
+      /> */}
     </View>
   )
 }
@@ -43,9 +45,10 @@ MainScreen.navigationOptions = {
 }
 
 const styles = StyleSheet.create({
-  screen: {
+  wrapper: {
+    padding: 10,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   }
 })
