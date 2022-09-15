@@ -27,7 +27,4 @@ const PostNavigator = createStackNavigator({
   }
 )
 
-export const AppNavigation = (qq => {
-  console.log('qq', qq);
-  return (createAppContainer(PostNavigator))
-})();
+export const AppNavigation = createAppContainer(PostNavigator);
