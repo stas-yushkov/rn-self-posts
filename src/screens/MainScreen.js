@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 
 import { AppText } from '../ui/AppText';
@@ -8,6 +8,16 @@ import { ThemeContext } from '../context/ThemeContext';
 
 export const MainScreen = ({ navigation }) => {
   const colors = COLORS[useContext(ThemeContext).theme];
+
+  useEffect(() => {//need to be fixed in react-navigation v6
+    MainScreen.navigationOptions = {
+      ...MainScreen.navigationOptions,
+      headerStyle: {
+        backgroundColor: colors.navbarBgColor,
+      },
+      headerTintColor: colors.accentColor,
+    };
+  })
 
   return (
     <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
