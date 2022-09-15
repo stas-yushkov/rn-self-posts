@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 
 import { AppText } from '../ui/AppText';
 
-import { colors } from '../constants/colors';
+import { COLORS } from '../constants/colors';
+import { ThemeContext } from '../context/ThemeContext';
 
 export const PostScreen = ({ navigation }) => {
+  const colors = COLORS[useContext(ThemeContext).theme];
+
   return (
-    <View style={styles.screen}>
+    <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
       <AppText
         bold
         large
@@ -34,6 +37,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.appBg
   }
 })

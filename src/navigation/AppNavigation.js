@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { MainScreen } from '../screens/MainScreen';
 import { PostScreen } from '../screens/PostScreen';
 
-import { colors } from '../constants/colors';
+import { COLORS } from '../constants/colors';
 
 // CreateScreen
 // AboutScreen
@@ -20,11 +20,14 @@ const PostNavigator = createStackNavigator({
     initialRouteName: 'Main',
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: colors.navbarBgColor,
+        backgroundColor: COLORS['dark'].navbarBgColor,
       },
-      headerTintColor: colors.accentColor,
+      headerTintColor: COLORS['dark'].accentColor,
     }
   }
 )
 
-export const AppNavigation = createAppContainer(PostNavigator)
+export const AppNavigation = (qq => {
+  console.log('qq', qq);
+  return (createAppContainer(PostNavigator))
+})();

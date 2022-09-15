@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 
 import { AppNavigation } from './navigation/AppNavigation';
 
-import { colors } from './constants/colors';
+import { COLORS } from './constants/colors';
+import { ThemeContext } from './context/ThemeContext';
 
 export const MainLayout = ({ onLayoutRootView }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext)
+  const colors = COLORS[theme];
+
   return (
     <View
-      style={styles.container}
+      style={{ ...styles.container, backgroundColor: colors.appBg }}
       onLayout={onLayoutRootView}
     >
-      <AppNavigation />
+      <AppNavigation
+        screenProps={{ colors }}
+      />
       <StatusBar
         style={colors.statusBarStyle}
       // animated='fade'
       />
+      <View style={{
+        position: 'absolute',
+        bottom: 80,
+        right: 40,
+      }}>
+        <Button
+          title="TOGGLE THEME"
+          onPress={toggleTheme}
+        />
+      </View>
     </View>
   )
 };
@@ -24,6 +40,5 @@ export const MainLayout = ({ onLayoutRootView }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.appBg,
   },
 });

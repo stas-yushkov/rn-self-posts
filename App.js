@@ -1,13 +1,27 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Appearance } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { bootstrap } from './src/bootstrap';
 import { MainLayout } from './src/MainLayout';
 
+import { ThemeContext } from './src/context/ThemeContext';
+
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+  const [theme, setTheme] = useState('dark');
+
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+
+  const themeListener = Appearance.addChangeListener(() => setTheme(Appearance.getColorScheme()));
+
+  useEffect(() => {
+    setTheme(Appearance.getColorScheme());
+    return () => themeListener.remove();
+  }, [])
+
 
   useEffect(() => {
     async function prepare() {
@@ -35,6 +49,8 @@ export default function App() {
   }
 
   return (
-    <MainLayout onLayoutRootView={onLayoutRootView} />
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <MainLayout onLayoutRootView={onLayoutRootView} />
+    </ThemeContext.Provider>
   );
 }
