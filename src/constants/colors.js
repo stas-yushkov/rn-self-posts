@@ -4,9 +4,8 @@ export const COLORS = {
   light: {
     theme: 'light',
     statusBarStyle: 'dark',
-    //   accentColor: '#c678dd',
-    //   dangerColor: '#e06252',
-    //   WHITE: '#ffffff',
+    WHITE: '#ffffff',
+    textBgOverImg: 'rgba(0, 0, 0, 0.5)',
     //   TRANSPARENT: 'transparent',
     textColor: '#000000',
     appBg: '#eeeeee',
@@ -38,9 +37,8 @@ export const COLORS = {
   dark: {
     theme: 'dark',
     statusBarStyle: 'light',
-    //   accentColor: '#c678dd',
-    //   dangerColor: '#e06252',
-    //   WHITE: '#ffffff',
+    WHITE: '#ffffff',
+    textBgOverImg: 'rgba(0, 0, 0, 0.5)',
     //   TRANSPARENT: 'transparent',
     textColor: '#FFFFFF',
     appBg: '#282c35',

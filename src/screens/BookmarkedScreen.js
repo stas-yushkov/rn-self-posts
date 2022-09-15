@@ -21,13 +21,7 @@ export const BookmarkedScreen = ({ navigation }) => {
 
   return (
     <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
-      <AppText
-        bold
-        large
-        style={{
-          color: colors.textColor,
-        }}
-      >
+      <AppText bold large>
         Bookmarked Screen
       </AppText>
     </View>
