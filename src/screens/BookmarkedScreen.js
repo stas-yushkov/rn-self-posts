@@ -9,16 +9,6 @@ import { ThemeContext } from '../context/ThemeContext';
 export const BookmarkedScreen = ({ navigation }) => {
   const colors = COLORS[useContext(ThemeContext).theme];
 
-  useEffect(() => {//need to be fixed in react-navigation v6
-    BookmarkedScreen.navigationOptions = {
-      ...BookmarkedScreen.navigationOptions,
-      headerStyle: {
-        backgroundColor: colors.navbarBgColor,
-      },
-      headerTintColor: colors.accentColor,
-    };
-  })
-
   return (
     <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
       <AppText bold large>
@@ -28,8 +18,16 @@ export const BookmarkedScreen = ({ navigation }) => {
   )
 }
 
-BookmarkedScreen.navigationOptions = {
-  headerTitle: 'Bookmarked posts'
+BookmarkedScreen.navigationOptions = ({ screenProps }) => {
+  const colors = screenProps.colors;
+
+  return {
+    headerTitle: 'Bookmarked posts',
+    headerStyle: {
+      backgroundColor: colors.navbarBgColor,
+    },
+    headerTintColor: colors.accentColor,
+  }
 }
 
 const styles = StyleSheet.create({

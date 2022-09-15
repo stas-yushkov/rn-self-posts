@@ -7,22 +7,13 @@ import { COLORS } from '../constants/colors';
 import { ThemeContext } from '../context/ThemeContext';
 
 export const PostScreen = ({ navigation }) => {
+  const postId = navigation.getParam('postId');
   const colors = COLORS[useContext(ThemeContext).theme];
-
-  useEffect(() => {//need to be fixed in react-navigation v6
-    PostScreen.navigationOptions = {
-      ...PostScreen.navigationOptions,
-      headerStyle: {
-        backgroundColor: colors.navbarBgColor,
-      },
-      headerTintColor: colors.accentColor,
-    };
-  })
 
   return (
     <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
       <AppText bold large>
-        Post Screen
+        Post #{postId}
       </AppText>
       <Button
         title="Go to Main"
@@ -32,8 +23,17 @@ export const PostScreen = ({ navigation }) => {
   )
 }
 
-PostScreen.navigationOptions = {
-  headerTitle: 'Post #42'
+PostScreen.navigationOptions = ({ navigation, screenProps }) => {
+  const date = navigation.getParam('date');
+  const colors = screenProps.colors;
+
+  return {
+    headerTitle: `Posted: ${new Date(date).toLocaleDateString()}`,
+    headerStyle: {
+      backgroundColor: colors.navbarBgColor,
+    },
+    headerTintColor: colors.accentColor,
+  }
 }
 
 const styles = StyleSheet.create({

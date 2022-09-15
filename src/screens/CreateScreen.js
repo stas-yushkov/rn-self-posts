@@ -9,16 +9,6 @@ import { ThemeContext } from '../context/ThemeContext';
 export const CreateScreen = ({ navigation }) => {
   const colors = COLORS[useContext(ThemeContext).theme];
 
-  useEffect(() => {//need to be fixed in react-navigation v6
-    CreateScreen.navigationOptions = {
-      ...CreateScreen.navigationOptions,
-      headerStyle: {
-        backgroundColor: colors.navbarBgColor,
-      },
-      headerTintColor: colors.accentColor,
-    };
-  })
-
   return (
     <View style={{ ...styles.screen, backgroundColor: colors.appBg }}>
       <AppText bold large>
@@ -28,8 +18,16 @@ export const CreateScreen = ({ navigation }) => {
   )
 }
 
-CreateScreen.navigationOptions = {
-  headerTitle: 'Create post'
+CreateScreen.navigationOptions = ({ screenProps }) => {
+  const colors = screenProps.colors;
+
+  return {
+    headerTitle: 'Create post',
+    headerStyle: {
+      backgroundColor: colors.navbarBgColor,
+    },
+    headerTintColor: colors.accentColor,
+  }
 }
 
 const styles = StyleSheet.create({

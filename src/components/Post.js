@@ -4,26 +4,29 @@ import { AppText } from '../ui/AppText';
 
 import { COLORS } from '../constants/colors';
 import { ThemeContext } from '../context/ThemeContext';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-export const Post = ({ post }) => {
+export const Post = ({ post, onOpen }) => {
   const colors = COLORS[useContext(ThemeContext).theme];
   return (
-    <View style={styles.post}>
-      <ImageBackground
-        style={styles.img}
-        source={{ uri: post.img }}
-        resizeMode="cover"
-      // accessible
-      // accessibilityLabel="Open Post"
-      >
-        <View style={{ ...styles.textWrap, backgroundColor: colors.textBgOverImg }}>
-          <AppText small color={colors.WHITE}>
-            {new Date(post.date).toLocaleDateString()}
-          </AppText>
-        </View>
-      </ImageBackground>
-    </View>
+    <TouchableOpacity activeOpacity={0.7} onPress={() => onOpen(post)}>
+      <View style={styles.post}>
+        <ImageBackground
+          style={styles.img}
+          source={{ uri: post.img }}
+          resizeMode="cover"
+          accessible
+          accessibilityLabel="Open Post"
+        >
+          <View style={{ ...styles.textWrap, backgroundColor: colors.textBgOverImg }}>
+            <AppText small color={colors.WHITE}>
+              {new Date(post.date).toLocaleDateString()}
+            </AppText>
+          </View>
+        </ImageBackground>
+      </View>
+    </TouchableOpacity>
   )
 }
 
